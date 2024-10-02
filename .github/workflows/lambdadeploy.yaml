@@ -8,12 +8,12 @@ on:
       - 'lambda/**'
 
 jobs:
-  deploy-lambda:
-    runs-on: ubuntu-latest
+  deploy-lambda: # name of the job
+    runs-on: ubuntu-latest # sets or specifies the runner
     steps:
     - uses: actions/checkout@v2
 
-    - name: Set Up Python
+    - name: Set Up Python # sets up Python env
       uses: actions/setup-python@v2
       with:
         python-version: '3.11'
@@ -23,14 +23,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r lambda/requirements.txt -t lambda/
 
-    - name: Configure AWS Credentials
+    - name: Configure AWS Credentials # sets up AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-        aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Deploy Lambda Function
+    - name: Deploy Lambda Function # zips lambda directory and updates lambda function
+
       run: |
         cd lambda
         zip -r ../lambda.zip .

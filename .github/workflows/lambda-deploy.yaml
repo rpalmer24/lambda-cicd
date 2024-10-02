@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - main
-      paths:
-        - 'lambda/**'
+    paths:
+      - 'lambda/**'
 
-  jobs:
+jobs:
     deploy-lambda: # name of the job
       runs-on: ubuntu-latest # sets or specifies the runner
       steps:

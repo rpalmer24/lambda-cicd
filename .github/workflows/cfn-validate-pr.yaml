@@ -44,7 +44,7 @@ jobs:
               body: 'Cloudformation test stack deployed. Stack name: pr-test-stack-${{github.event.pull_request.number}}'
             })
 
-  cleanup-on-merge:
+cleanup-on-merge:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merge == true
     steps:

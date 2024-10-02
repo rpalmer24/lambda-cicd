@@ -27,7 +27,7 @@ on:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: {{secrets.AWS_ACCESS_KEY_ID}}
-          aws-access-secret-key: {{secret.AWS.SECRET_ACCESS_KEY}}
+          aws-secret-access-key: {{secret.AWS.SECRET_ACCESS_KEY}}
           aws-region: us-east-1
 
       - name: Deploy Lamda Function # zips lambda directory and updates lambda function

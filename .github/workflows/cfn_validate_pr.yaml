@@ -29,17 +29,17 @@ jobs:
       - name: Deploy Stack
         run: |
           stack_name="pr-test-stack-${{github.event.pull_request.number}}"
-          aws cloudformation create-stack --stack-name $stack-name --template-body file://cloudformation/s3-bucket.yaml --parameters 
+          aws cloudformation create-stack --stack-name $stack_name --template-body file://cloudformation/s3-bucket.yaml --parameters 
           ParameterKey=Environment,ParameterValue=test
       
       - name: Comment on PR
         uses: actions/github-script@v6
         with:
-          github-token: ${{secrets.GITHUB_Token}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.rest.issues.createComment ({
               issue_number: context.issue.number,
-              owner: context.repo.owner
+              owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Cloudformation test stack deployed. Stack name: pr-test-stack-${{github.event.pull_request.number}}'
             })

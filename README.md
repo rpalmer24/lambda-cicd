@@ -40,11 +40,17 @@ Pull Request
 - GitHub Actions
 - AWS Lambda
 - AWS S3
+  
 
 _Push Request_
+
+
 <img width="346" alt="deploy_lambda" src="https://github.com/user-attachments/assets/cc0330c6-c707-40ca-90a3-3159a68164bc">
 
+
 _Pull Request_
+
+
 <img width="376" alt="pr_github_action" src="https://github.com/user-attachments/assets/a3696ea1-91d8-45c2-adb0-5d15e41d4250">
 <img width="770" alt="awsconsole_github_acrtion" src="https://github.com/user-attachments/assets/3a728cc4-1b60-4413-a892-8abf24a3bf95">
 
